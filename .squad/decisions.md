@@ -353,6 +353,27 @@
 
 ---
 
+### DEC-024: Chess playground specification — `/dashboard/practice` (2026-04-04)
+
+**Author:** Livingston (Chess Academy Lead)  
+**Status:** 📋 Proposed
+
+**Decision:** Comprehensive 47KB specification for interactive chess practice environment at `/dashboard/practice`. Covers feature overview, engine integration (Stockfish + chess.js), puzzle system with adaptive difficulty, student rating/ELO, game modes (vs. AI, vs. peer, analysis), full platform integration with curriculum tiers, UI/UX specifications, and complete Supabase data model.
+
+**Key deliverables:**
+- 4 core game modes (3 MVP + 1 Phase 2): Tactical Puzzles, Practice vs Engine, Game Review, and future Student vs Student
+- Curriculum tier mapping: Learn (5–8, puzzle rating 400–800) → Play (9–12, 800–1400) → Compete (12–15, 1400–1900) → Excel (15–17, 1900–2400+)
+- Stockfish skill levels 0–20 mapped to student tiers
+- 10,000+ puzzle database with difficulty progression
+- Coach dashboards with student analytics
+- Student portfolio integration (games, achievements, progression)
+
+**Integration:** Ties directly to DEC-012 (Chess Curriculum). Feeds Virgil's coding roadmap, Rusty's API layer, Linus's dashboard UX.
+
+**Source file:** `livingston-chess-playground.md` (47KB)
+
+---
+
 ## Governance
 
 - All meaningful changes require team consensus
