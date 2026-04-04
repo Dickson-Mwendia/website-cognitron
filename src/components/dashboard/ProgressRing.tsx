@@ -8,6 +8,7 @@ interface ProgressRingProps {
   strokeWidth?: number;
   color?: string;
   trackColor?: string;
+  textColor?: string;
   showPercentage?: boolean;
   className?: string;
 }
@@ -18,6 +19,7 @@ export function ProgressRing({
   strokeWidth = 6,
   color = '#d4a843',
   trackColor = '#162d50',
+  textColor,
   showPercentage = true,
   className = '',
 }: ProgressRingProps) {
@@ -36,7 +38,14 @@ export function ProgressRing({
   }, [progress]);
 
   return (
-    <div className={`relative inline-flex items-center justify-center ${className}`}>
+    <div
+      className={`relative inline-flex items-center justify-center ${className}`}
+      role="progressbar"
+      aria-valuenow={Math.round(progress)}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-label={`${Math.round(progress)}% complete`}
+    >
       <svg
         width={size}
         height={size}
@@ -63,13 +72,13 @@ export function ProgressRing({
           strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
-          style={{ transition: 'stroke-dashoffset 0.8s ease-out' }}
+          style={{ transition: 'stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1)' }}
         />
       </svg>
       {showPercentage && (
         <span
-          className="absolute font-bold text-white"
-          style={{ fontSize: size * 0.22 }}
+          className="absolute font-bold"
+          style={{ fontSize: size * 0.22, color: textColor ?? color }}
         >
           {Math.round(progress)}%
         </span>

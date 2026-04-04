@@ -27,7 +27,7 @@ export function TrackCard({
 
   return (
     <div
-      className={`relative overflow-hidden rounded-xl bg-navy-light p-5 ${className}`}
+      className={`relative overflow-hidden rounded-xl bg-navy-light p-5 transition-all duration-200 hover:shadow-lg hover:shadow-gold/5 ${className}`}
     >
       {/* Accent glow */}
       <div

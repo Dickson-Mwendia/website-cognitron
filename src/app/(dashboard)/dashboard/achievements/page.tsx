@@ -37,12 +37,14 @@ export default async function AchievementsPage() {
       </section>
 
       {/* ── XP & Level Progress ── */}
-      <section className="flex flex-col items-center gap-6 rounded-2xl border border-gray-200 bg-white p-6 md:flex-row md:p-8">
+      <section className="flex flex-col items-center gap-6 rounded-2xl border border-gray-200 bg-white p-6 md:flex-row md:p-8 shadow-sm">
         <ProgressRing
           progress={Math.round((data.totalXp / 6000) * 100)}
           size={200}
           strokeWidth={12}
           color="#d4a843"
+          trackColor="#e8e8e8"
+          textColor="#0c1b33"
         />
         <div className="w-full flex-1">
           <h2 className="font-heading text-lg font-bold text-[#0c1b33] mb-2">
@@ -53,6 +55,7 @@ export default async function AchievementsPage() {
             max={6000}
             currentLevelName={`Level ${data.currentLevel}`}
             nextLevelName={`Level ${data.currentLevel + 1}`}
+            variant="light"
           />
           <p className="mt-2 text-sm text-[#0c1b33]/50">
             {(6000 - data.totalXp).toLocaleString()} XP to next level
@@ -100,17 +103,17 @@ export default async function AchievementsPage() {
       </section>
 
       {/* ── Streak Calendar ── */}
-      <section className="rounded-2xl border border-gray-200 bg-white p-6">
+      <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
         <h2 className="font-heading text-lg font-bold text-[#0c1b33] mb-4">
           🔥 Streak Calendar
         </h2>
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex flex-wrap items-center gap-3 mb-4">
           {mockStreakDays.map((d) => (
             <div key={d.day} className="flex flex-col items-center gap-1">
               <div
-                className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold ${
+                className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold transition-all ${
                   d.active
-                    ? 'bg-[#d4a843] text-white'
+                    ? 'bg-[#d4a843] text-white shadow-md shadow-[#d4a843]/20'
                     : 'bg-gray-100 text-[#0c1b33]/30'
                 }`}
               >

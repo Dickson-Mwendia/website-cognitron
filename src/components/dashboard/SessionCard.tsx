@@ -62,7 +62,7 @@ export function SessionCard({
   if (variant === 'compact') {
     return (
       <div
-        className={`flex items-center gap-3 rounded-lg bg-navy-light p-3 ${className}`}
+        className={`flex items-center gap-3 rounded-xl bg-navy-light p-3 transition-all hover:bg-navy-light/90 hover:shadow-sm ${className}`}
       >
         <span className="text-xl">{icon}</span>
         <div className="flex-1 min-w-0">

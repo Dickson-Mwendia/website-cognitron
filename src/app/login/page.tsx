@@ -1,4 +1,5 @@
 import { LoginForm } from './login-form'
+import { Logo } from '@/components/Logo'
 
 export const metadata = {
   title: 'Sign In',
@@ -11,11 +12,10 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2">
-            <span className="text-gold text-2xl">⬡</span>
-            <span className="font-heading text-3xl text-white font-bold">Cognitron</span>
+          <div className="flex justify-center">
+            <Logo size="lg" on="dark" />
           </div>
-          <p className="text-slate-light mt-2">Premium learning, reimagined</p>
+          <p className="text-slate-light mt-3 text-sm">Premium learning, reimagined</p>
         </div>
 
         <LoginForm />

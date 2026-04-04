@@ -33,10 +33,10 @@ export function AchievementBadge({
 
   return (
     <div
-      className={`relative rounded-xl p-4 flex flex-col items-center text-center gap-2 transition-all ${
+      className={`relative rounded-xl p-4 flex flex-col items-center text-center gap-2 transition-all duration-200 ${
         earned
-          ? 'bg-navy-light border-2 border-gold shadow-md'
-          : 'bg-navy-light/60 border-2 border-dashed border-slate/40'
+          ? 'bg-navy-light border-2 border-gold shadow-md hover:shadow-lg hover:shadow-gold/10 hover:scale-[1.03] cursor-default'
+          : 'bg-navy-light/60 border-2 border-dashed border-slate/40 hover:border-slate/60'
       } ${className}`}
     >
       {/* Icon */}

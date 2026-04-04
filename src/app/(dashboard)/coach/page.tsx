@@ -25,17 +25,17 @@ export default async function CoachDashboard() {
 
       {/* ── Quick Stats ── */}
       <section className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <div className="rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm">
+        <div className="rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm transition-all hover:shadow-md hover:border-navy/20">
           <p className="text-3xl font-bold text-[#0c1b33]">{totalStudents}</p>
           <p className="mt-1 text-sm text-[#0c1b33]/50">Total Students</p>
         </div>
-        <div className="rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm">
+        <div className="rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm transition-all hover:shadow-md hover:border-teal/30">
           <p className="text-3xl font-bold text-[#2a9d8f]">
             {sessionsThisWeek}
           </p>
           <p className="mt-1 text-sm text-[#0c1b33]/50">Sessions This Week</p>
         </div>
-        <div className="rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm">
+        <div className="rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm transition-all hover:shadow-md hover:border-gold/30">
           <p className="text-3xl font-bold text-[#d4a843]">
             {avgXp.toLocaleString()}
           </p>

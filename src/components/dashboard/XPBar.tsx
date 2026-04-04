@@ -7,6 +7,7 @@ interface XPBarProps {
   max: number;
   currentLevelName?: string;
   nextLevelName?: string;
+  variant?: 'dark' | 'light';
   className?: string;
 }
 
@@ -15,6 +16,7 @@ export function XPBar({
   max,
   currentLevelName,
   nextLevelName,
+  variant = 'dark',
   className = '',
 }: XPBarProps) {
   const [animated, setAnimated] = useState(false);
@@ -27,18 +29,20 @@ export function XPBar({
 
   const formatNumber = (n: number) => n.toLocaleString();
 
+  const isDark = variant === 'dark';
+
   return (
-    <div className={`w-full ${className}`}>
+    <div className={`w-full ${className}`} role="progressbar" aria-valuenow={current} aria-valuemin={0} aria-valuemax={max} aria-label={`${formatNumber(current)} of ${formatNumber(max)} XP`}>
       {/* Level labels */}
       {(currentLevelName || nextLevelName) && (
         <div className="flex items-center justify-between mb-1.5">
           {currentLevelName && (
-            <span className="text-xs font-semibold text-gold flex items-center gap-1">
+            <span className={`text-xs font-semibold flex items-center gap-1 ${isDark ? 'text-gold' : 'text-gold-dark'}`}>
               ⭐ {currentLevelName}
             </span>
           )}
           {nextLevelName && (
-            <span className="text-xs text-slate-light flex items-center gap-1">
+            <span className={`text-xs flex items-center gap-1 ${isDark ? 'text-slate-light' : 'text-slate'}`}>
               🔒 {nextLevelName}
             </span>
           )}
@@ -46,7 +50,7 @@ export function XPBar({
       )}
 
       {/* Bar */}
-      <div className="relative h-3 rounded-full bg-navy-light overflow-hidden">
+      <div className={`relative h-3 rounded-full overflow-hidden ${isDark ? 'bg-navy-light' : 'bg-gray-200'}`}>
         <div
           className="absolute inset-y-0 left-0 rounded-full"
           style={{
@@ -69,16 +73,9 @@ export function XPBar({
       </div>
 
       {/* XP text */}
-      <p className="text-xs text-slate-light mt-1.5 text-center">
+      <p className={`text-xs mt-1.5 text-center ${isDark ? 'text-slate-light' : 'text-slate'}`}>
         {formatNumber(current)} / {formatNumber(max)} XP
       </p>
-
-      <style jsx>{`
-        @keyframes xpShimmer {
-          0% { background-position: -200% 0; }
-          100% { background-position: 200% 0; }
-        }
-      `}</style>
     </div>
   );
 }

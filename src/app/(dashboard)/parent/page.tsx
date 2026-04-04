@@ -26,14 +26,22 @@ export default async function ParentDashboard() {
 
       {/* ── Children Overview Cards ── */}
       <section>
-        <h2 className="font-heading text-xl font-bold text-[#0c1b33] mb-4">
-          Your Children
-        </h2>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="font-heading text-xl font-bold text-[#0c1b33]">
+            Your Children
+          </h2>
+          <Link
+            href="/parent/add-child"
+            className="inline-flex items-center gap-2 rounded-full bg-[#d4a843] px-5 py-2.5 text-sm font-semibold text-[#0c1b33] transition-colors hover:bg-[#d4a843]/90"
+          >
+            ➕ Add Child
+          </Link>
+        </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {mockChildren.map((child) => (
             <div
               key={child.id}
-              className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm md:p-6"
+              className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-200 hover:shadow-md hover:border-gold/30 md:p-6"
             >
               {/* Avatar + name */}
               <div className="flex items-center gap-4 mb-4">
@@ -90,8 +98,8 @@ export default async function ParentDashboard() {
               </div>
 
               <Link
-                href="#"
-                className="inline-block rounded-full bg-[#0c1b33] px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#0c1b33]/90"
+                href="/dashboard"
+                className="inline-block rounded-full bg-[#0c1b33] px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-navy-light hover:shadow-md active:scale-[0.97]"
               >
                 View Details →
               </Link>
@@ -130,7 +138,7 @@ export default async function ParentDashboard() {
           {mockCoachNotes.map((note) => (
             <div
               key={note.id}
-              className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm"
+              className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:shadow-md hover:border-gray-300"
             >
               <div className="mb-2 flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -160,20 +168,20 @@ export default async function ParentDashboard() {
       {/* ── Quick Actions ── */}
       <section className="flex flex-wrap gap-3">
         <Link
-          href="#"
-          className="rounded-full bg-[#2a9d8f] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#2a9d8f]/90"
+          href="/contact"
+          className="rounded-full bg-[#2a9d8f] px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#2a9d8f]/90 hover:shadow-md active:scale-[0.97]"
         >
           📅 Book Extra Session
         </Link>
         <Link
-          href="#"
-          className="rounded-full bg-[#0c1b33] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#0c1b33]/90"
+          href="/contact"
+          className="rounded-full bg-[#0c1b33] px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#0c1b33]/90 hover:shadow-md active:scale-[0.97]"
         >
           💬 Message Coach
         </Link>
         <Link
-          href="#"
-          className="rounded-full border-2 border-[#d4a843] px-5 py-2.5 text-sm font-semibold text-[#0c1b33] transition-colors hover:bg-[#d4a843]/10"
+          href="/contact"
+          className="rounded-full border-2 border-[#d4a843] px-5 py-2.5 text-sm font-semibold text-[#0c1b33] transition-all hover:bg-[#d4a843]/10 hover:shadow-sm active:scale-[0.97]"
         >
           💳 View Billing
         </Link>

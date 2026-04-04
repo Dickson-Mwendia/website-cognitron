@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation'
 import { requireAuth } from '@/lib/auth'
 import { mockTracks, mockCodingCurriculum } from '@/lib/mock-data'
 import { ProgressRing } from '@/components/dashboard/ProgressRing'
-import Link from 'next/link'
 
 /* ------------------------------------------------------------------ */
 /*  Track configuration                                                */
@@ -96,12 +95,12 @@ export default async function TrackPage(props: {
               color="#d4a843"
               trackColor="rgba(255,255,255,0.15)"
             />
-            <Link
-              href="#"
-              className="whitespace-nowrap rounded-full bg-[#d4a843] px-6 py-3 text-sm font-semibold text-[#0c1b33] transition-colors hover:bg-[#d4a843]/90"
+            <span
+              title="Coming soon"
+              className="whitespace-nowrap rounded-full bg-[#d4a843] px-6 py-3 text-sm font-semibold text-[#0c1b33] transition-colors hover:bg-[#d4a843]/90 cursor-default opacity-70"
             >
               Continue Learning →
-            </Link>
+            </span>
           </div>
         </div>
       </section>
@@ -210,22 +209,23 @@ export default async function TrackPage(props: {
               icon: '🔬',
             },
           ].map((challenge) => (
-            <Link
+            <button
               key={challenge.title}
-              href="#"
-              className="group rounded-2xl border border-gray-200 p-5 transition-all hover:shadow-md"
-              style={
-                { '--hover-border': config.accent } as React.CSSProperties
-              }
+              disabled
+              title="Coming soon"
+              className="group rounded-2xl border border-gray-200 bg-white p-5 transition-all duration-200 hover:shadow-lg hover:border-gray-300 text-left cursor-default"
             >
-              <span className="text-3xl">{challenge.icon}</span>
+              <span className="text-3xl block group-hover:scale-110 transition-transform origin-left">{challenge.icon}</span>
               <h3 className="mt-3 font-heading font-bold text-[#0c1b33] transition-colors group-hover:text-[#2a9d8f]">
                 {challenge.title}
               </h3>
               <p className="mt-1 text-sm text-[#0c1b33]/60">
                 {challenge.desc}
               </p>
-            </Link>
+              <span className="mt-2 inline-block text-[10px] font-semibold uppercase tracking-wider text-[#0c1b33]/30">
+                Coming Soon
+              </span>
+            </button>
           ))}
         </div>
       </section>
