@@ -1,0 +1,26 @@
+<svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hexagonal shield -->
+  <path d="M32 3L57.7 17.5V46.5L32 61L6.3 46.5V17.5L32 3Z" fill="#0c1b33" stroke="#162d50" stroke-width="1.5"/>
+
+  <!-- Inner border ring -->
+  <path d="M32 8L52.8 20.2V43.8L32 56L11.2 43.8V20.2L32 8Z" fill="none" stroke="#d4a843" stroke-width="1" opacity="0.4"/>
+
+  <!-- Code brackets — top-left -->
+  <path d="M18 22L14 27L18 32" stroke="#d4a843" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M27 22L31 27L27 32" stroke="#d4a843" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24 21L21 33" stroke="#d4a843" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Neural nodes — top-right -->
+  <circle cx="40" cy="22" r="2.5" fill="#d4a843"/>
+  <circle cx="50" cy="22" r="2" fill="#d4a843" opacity="0.7"/>
+  <circle cx="45" cy="29" r="2.2" fill="#d4a843" opacity="0.85"/>
+  <line x1="42" y1="23" x2="43.5" y2="27.5" stroke="#d4a843" stroke-width="1" opacity="0.5"/>
+  <line x1="48.5" y1="23" x2="46.5" y2="27.5" stroke="#d4a843" stroke-width="1" opacity="0.5"/>
+  <line x1="42.5" y1="22" x2="48" y2="22" stroke="#d4a843" stroke-width="1" opacity="0.4"/>
+
+  <!-- Chess knight — bottom-centre -->
+  <g transform="translate(26, 35)">
+    <path d="M6 18H2V16L4 14L2 10V8L4 6L3 3C3 3 4 0 7 0C10 0 11.5 2 11.5 4L10 7L12 10L10 14L12 16V18H8" fill="#d4a843" stroke="#0c1b33" stroke-width="0.5"/>
+    <circle cx="6.5" cy="4" r="1" fill="#0c1b33"/>
+  </g>
+</svg>

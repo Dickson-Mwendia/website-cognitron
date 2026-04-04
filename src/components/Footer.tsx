@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Logo } from "./Logo";
 
 export function Footer() {
   return (
@@ -8,8 +9,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="md:col-span-1">
-            <Link href="/" className="text-xl font-bold tracking-tight">
-              <span className="text-gold">C</span>ognitron
+            <Link href="/" className="inline-block">
+              <Logo variant="full" size="md" on="dark" />
             </Link>
             <p className="mt-3 text-sm text-white/60 leading-relaxed">
               Building sharper minds.

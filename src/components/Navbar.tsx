@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { Logo } from "./Logo";
 
 const academyLinks = [
   { href: "/academy/coding", label: "Coding & App Development" },
@@ -26,9 +27,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold tracking-tight">
-              <span className="text-gold">C</span>ognitron
-            </span>
+            <Logo variant="full" size="md" on="dark" />
           </Link>
 
           {/* Desktop Nav */}
