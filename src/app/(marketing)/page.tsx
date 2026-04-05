@@ -45,7 +45,7 @@ const testimonials = [
   },
   {
     quote:
-      "My daughter went from not knowing what Python was to building a chatbot that helps her organize homework. In eight weeks. She's already talking about studying Computer Science.",
+      "My daughter went from not knowing what Python was to building a chatbot that helps her organise homework. In eight weeks. She's already talking about studying Computer Science.",
     name: "Dr. Patricia N.",
     detail: "Parent, Nairobi",
     childContext: "Daughter, age 14 - AI track",
@@ -430,7 +430,7 @@ export default function Home() {
                 Dickson Mwendia
               </h3>
               <p className="text-gold-dark font-semibold text-sm mt-1">
-                Founder &amp; Lead Coach
+                Founder
               </p>
               <p className="mt-4 text-slate leading-relaxed">
                 Dickson founded Cognitron with a simple belief: every child
@@ -601,7 +601,7 @@ export default function Home() {
             {[
               {
                 q: "What ages do you teach?",
-                a: "Chess & Strategy starts from age 6. Coding and AI tracks are best from age 8 and above. All tracks run up to age 17.",
+                a: "Chess welcomes players from age 6. Coding is best from age 8. AI starts from age 10. All tracks run up to age 17.",
               },
               {
                 q: "Do your coaches come to our home?",

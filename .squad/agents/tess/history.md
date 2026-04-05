@@ -34,3 +34,31 @@
 - **Trial lesson design:** 60 minutes (not 90) — shorter creates wanting-more effect. Parent MUST be welcome to watch. Child MUST build something tangible. Coach MUST name 2-3 specific child strengths. No slides, no presentations, no selling during the trial.
 - **Trust signal priorities:** Coach profile + safeguarding policy + Certificate of Good Conduct are non-negotiable BEFORE first outreach. Instagram presence needed by family #3. Video by family #10.
 - **Key file paths:** Live pricing at `src/app/(marketing)/pricing/page.tsx`. Privacy policy at `/privacy`. Safeguarding at `/protect`. Contact at `/contact`.
+
+### 2025-07-27: Pre-Staging Parent Copy & Messaging Review
+- Full page-by-page review of all 9 parent-facing pages (5 marketing, 4 dashboard).
+- **Overall site confidence: 6.5/10.** Messaging is strong (8/10); evidence layer is weak (4/10 — no photos, no verifiable testimonials, no coach headshots, no safeguarding statement).
+- **Top 5 conversion blockers:** (1) No real photography, (2) No safeguarding/vetting statement, (3) Session duration + sibling discount missing from pricing, (4) Testimonials read as fabricated, (5) No explicit maths/problem-solving messaging.
+- **Math/problem-solving finding:** "Computational thinking" section on Academy is strong but doesn't use the word "mathematics." Nairobi parents equate maths with academic success. Recommended adding explicit "mathematical thinking" framing + homepage FAQ: "Does Cognitron help with school maths?"
+- **Dashboard bugs:** "View Details" links go to `/dashboard` not child-specific; "View Full Report" button is non-functional; "Message Coach" goes to general contact.
+- **Contact page is strongest page (8.5/10)** — WhatsApp-first, clear next steps, "hear back within 2 hours" specificity.
+- **Pricing page is weakest (6/10)** — sticker shock without value framing, no session duration, no sibling discount, USD too prominent.
+- Deliverable: `.squad/decisions/inbox/tess-parent-copy-review-staging.md`
+
+### 2025-07-27: Mathematics & Problem-Solving Copy Additions
+- Wrote 5 copy pieces bridging "computational thinking" to parent-friendly "maths and problem-solving" language.
+- **Updated subtitle** for the Computational Thinking section — leads with "maths, logic, and problem-solving" instead of the jargon term.
+- **5th pillar card** ("Mathematical thinking") connecting maths to all 3 tracks in a single description. Uses `TrendingUp` icon (already imported).
+- **Homepage FAQ** ("Does Cognitron help with school maths?") — honest framing: we complement school maths, don't replace it. Lists specific maths skills per track.
+- **Track-specific callouts** — one sentence per track (coding = applied maths, chess = calculation & spatial reasoning, AI = data patterns & probability).
+- **Parent testimonial** — Florence W. from Karen, daughter jumped two maths sets after coding track. Flagged as illustrative/placeholder until we have real testimonials.
+- Key principle: "complement, not replace" — avoid overclaiming. Parents will see through it.
+- Deliverable: `.squad/decisions/inbox/tess-math-copy.md`
+
+## Learnings
+
+- **Evidence beats copy at premium pricing.**The Cognitron copy is genuinely well-written and locally resonant — but without photos, verifiable testimonials, and safety proof, premium Nairobi parents won't convert. The gap between messaging quality and evidence quality is the core conversion problem.
+- **Session duration is still missing** after two prior reviews flagging it (DEC-009, Founding Families kit). This is a pattern — operational details get deprioritized in favour of aspirational copy. Must be enforced as a blocker.
+- **"Computational thinking" doesn't translate to parent language.** Educators say computational thinking; Nairobi parents say "maths" and "problem-solving." Need to bridge this gap explicitly or lose the math-focused parent segment.
+- **Dashboard link hygiene:** Multiple "View Details" and "View Full Report" links point to wrong or non-functional destinations. These erode trust fast for parents who are already logged in and paying.
+- **M-Pesa billing integration is a strong differentiator.** The billing page with Lipa na M-Pesa instructions and payment history with M-Pesa refs is exactly right for the market. This signals "built for Kenya" more than any copy.

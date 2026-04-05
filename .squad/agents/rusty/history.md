@@ -7,8 +7,22 @@
 - **Joined:** 2026-04-04T11:17:24.278Z
 
 ## Learnings
-
+
 <!-- Append learnings below -->
+
+### 2026-07-21: Deployment Blocker Fixes (11 items)
+- **Middleware naming (BLOCKER #1):** Next.js 16.2.1 uses `proxy.ts`/`proxy()` convention, NOT `middleware.ts`. The file was already correctly named. Renaming to middleware.ts triggers a deprecation warning. Left as `proxy.ts` with `proxy()` export — auth is active.
+- **FAQ age contradiction (BLOCKER #2):** Fixed homepage FAQ to distinguish ages per track: Chess from 6, Coding from 8, AI from 10. Aligns with academy/ai page.
+- **Forgot password button (BLOCKER #3):** Replaced dead `<button>` with a `<Link>` to /contact saying "Need help signing in? Contact us".
+- **Demo Mode banners (BLOCKER #4):** Guarded with `process.env.NODE_ENV === 'development'` in both login-form.tsx and signup-form.tsx. Hidden in production/staging.
+- **Analytics placeholders (BLOCKER #5):** Verified — `isRealId()` guard in Analytics.tsx already prevents script injection. No change needed.
+- **Okonkwo → Kamau (#6):** Replaced all instances across mock-data.ts, signup-form.tsx, add-child-client.tsx, and parent/schedule/page.tsx. First names (Amara, Fatima, Jabari) kept — they work for East Africa.
+- **British English (#7):** "organize" → "organise" in testimonial, "personalized" → "personalised" in how-it-works, "Chess" → "chess" (lowercase) in chess page heading.
+- **Pricing math (#8):** Fixed KES 67,600 → KES 68,000 (8,500 × 8 = 68,000). Updated USD approximation to $525.
+- **Dead # links (#9):** Fixed 6 links in student dashboard: Join Lesson → /dashboard/schedule, Book a Session → /contact, Start Now → /dashboard/practice, Practice Now → /dashboard/practice, My Schedule → /dashboard/schedule, Ask Coach → /contact.
+- **Founder title (#10):** About page: "Software Engineer & Founder". Homepage: "Founder" (shorter context).
+- **Auth page taglines (#11):** Login: "Welcome back to Cognitron". Signup: "Create your family's Cognitron account". Replaced generic "Premium learning, reimagined".
+- Build passes clean: 53/53 pages, zero TypeScript errors, zero warnings.
 
 ### 2026-04-04: Monorepo + Security Audit
 - Reviewed full codebase: single Next.js app with marketing + platform in route groups. Supabase backend with 13 tables, all RLS-enabled.
@@ -157,3 +171,11 @@
 - **Mock data:** Added `ProgressReportData` interface and `mockProgressReport` to mock-data.ts with realistic Amara Okonkwo data across all 3 tracks.
 - **Wiring:** `StudentDetailDrawer` "View Full Dashboard" button now navigates to `/admin/students/[id]` via `useRouter`. Coach `StudentRosterClient` cards are now `<Link>` elements pointing to `/coach/students/[id]`.
 - Build: 57 routes, zero errors. 4 new dynamic routes confirmed.
+
+### 2026-04-04: Chess Playground Spec — Technical Review
+- Reviewed Livingston's 1,193-line chess playground specification at `/dashboard/practice`.
+- **3 blockers found:** (1) RLS policies reference non-existent `student_coaches` table — our schema uses `coach_assignments`. Also `student_id = auth.uid()` is wrong — should be `student_id IN (SELECT id FROM profiles WHERE user_id = auth.uid())`. (2) Glicko-2 rating calc MUST be server-side via Server Actions, not client-side (manipulation risk). (3) CSP headers need `wasm-unsafe-eval` for Stockfish WASM.
+- **Key recommendations:** Use react-chessboard v5.10.0 (not 4.x — v5 has React 19 peer dep), stockfish v18 (not v16), serve WASM from `/public/stockfish/` to avoid Turbopack bundler issues, map 4 chess tiers to 3 existing DB age_tiers using rating as discriminator.
+- **Proposed 4-phase plan:** Phase 1 = puzzles only (3-4 sessions, no engine needed), Phase 2 = engine play (3-4 sessions), Phase 3 = game review (2-3 sessions), Phase 4 = polish + coach/parent (2-3 sessions). Total MVP: 10-14 sessions.
+- Confirmed no table naming conflicts with existing 24 tables. FK references to `profiles(id)` match existing pattern.
+- Review written to `.squad/decisions/inbox/rusty-chess-review.md`.

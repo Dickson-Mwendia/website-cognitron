@@ -109,7 +109,7 @@ export default function ChessPage() {
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight max-w-3xl">
-            A classical Chess education
+            A classical chess education
           </h1>
           <p className="mt-6 text-lg text-white/70 max-w-2xl leading-relaxed">
             Our students learn from rated coaches who sit across the board,

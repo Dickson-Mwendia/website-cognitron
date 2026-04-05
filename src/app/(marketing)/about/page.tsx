@@ -14,7 +14,7 @@ const coaches = [
   {
     name: 'Dickson Mwendia',
     initials: 'DM',
-    title: 'Software Engineer',
+    title: 'Software Engineer & Founder',
     company: 'Microsoft',
     linkedin: 'https://www.linkedin.com/in/dickson-mwendia/',
   },
@@ -150,8 +150,9 @@ export default function AboutPage() {
             </h3>
             <p className="text-white/70 text-sm md:text-base leading-relaxed">
               Technology changes fast. Our coaches don&apos;t teach from textbooks written five years ago —
-              they teach from the codebase they worked on this morning. Your child learns the tools,
-              patterns, and thinking that companies actually use today.
+              they bring lessons from the real projects they work on every day. Your child learns
+              current tools, industry thinking, and problem-solving approaches that companies
+              actually use — distilled into challenges built for young learners.
             </p>
           </div>
         </div>

@@ -18,7 +18,7 @@ export default function LoginPage() {
           <div className="flex justify-center">
             <Logo size="lg" on="dark" />
           </div>
-          <p className="text-slate-light mt-3 text-sm">Premium learning, reimagined</p>
+          <p className="text-slate-light mt-3 text-sm">Welcome back to Cognitron</p>
         </div>
 
         <LoginForm />

@@ -19,7 +19,7 @@ export default function SignupPage() {
           <div className="flex justify-center">
             <Logo size="lg" on="dark" />
           </div>
-          <p className="text-slate-light mt-3 text-sm">Premium learning, reimagined</p>
+          <p className="text-slate-light mt-3 text-sm">Create your family&apos;s Cognitron account</p>
         </div>
 
         <Suspense fallback={<div className="text-center text-slate-light text-sm py-8">Loading…</div>}>

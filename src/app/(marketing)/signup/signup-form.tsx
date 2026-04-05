@@ -166,8 +166,8 @@ export function SignupForm() {
         Join Cognitron and start your journey
       </p>
 
-      {/* Dev mode notice */}
-      {!supabaseConfigured && (
+      {/* Dev mode notice — hidden in production */}
+      {process.env.NODE_ENV === 'development' && !supabaseConfigured && (
         <div className="mb-4 p-3 bg-gold/10 border border-gold/30 rounded-lg text-sm text-navy">
           <strong>Demo Mode:</strong> Supabase not configured. Click create
           account to view the dashboard with sample data.
@@ -216,7 +216,7 @@ export function SignupForm() {
               required
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-              placeholder="Okonkwo"
+              placeholder="Kamau"
               className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-navy placeholder:text-slate-light focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-shadow"
             />
           </div>

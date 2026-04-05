@@ -68,7 +68,7 @@ export default function ContactPage() {
                   </p>
                   <p className="text-sm text-slate">+254 710 643 847</p>
                   <p className="text-xs text-[#25D366] font-medium mt-0.5">
-                    Tap to chat with Dickson directly →
+                    Tap to chat with us directly →
                   </p>
                 </div>
               </a>

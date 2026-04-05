@@ -57,8 +57,8 @@ export function LoginForm() {
         Sign in to continue learning
       </p>
 
-      {/* Dev mode notice */}
-      {!supabaseConfigured && (
+      {/* Dev mode notice — hidden in production */}
+      {process.env.NODE_ENV === 'development' && !supabaseConfigured && (
         <div className="mb-4 p-3 bg-gold/10 border border-gold/30 rounded-lg text-sm text-navy">
           <strong>Demo Mode:</strong> Supabase not configured. Click sign in to
           view the dashboard with sample data.
@@ -142,12 +142,12 @@ export function LoginForm() {
               Remember me
             </label>
           </div>
-          <button
-            type="button"
+          <Link
+            href="/contact"
             className="text-sm text-gold hover:text-gold-dark transition-colors"
           >
-            Forgot password?
-          </button>
+            Need help signing in? Contact us
+          </Link>
         </div>
 
         {/* Submit */}

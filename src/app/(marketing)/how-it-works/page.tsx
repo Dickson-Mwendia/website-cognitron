@@ -54,7 +54,7 @@ export default function HowItWorksPage() {
               {
                 icon: ClipboardList,
                 step: "2",
-                title: "Receive a personalized plan",
+                title: "Receive a personalised plan",
                 desc: "We create a tailored learning plan with a curriculum, schedule, and assigned coach. You review and approve before we start.",
               },
               {

@@ -102,7 +102,7 @@ export default function AddChildClient() {
                   name="lastName"
                   type="text"
                   required
-                  placeholder="Okonkwo"
+                  placeholder="Kamau"
                   className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-[#0c1b33] placeholder:text-[#0c1b33]/30 focus:outline-none focus:ring-2 focus:ring-[#d4a843] focus:border-transparent transition-shadow"
                 />
               </div>

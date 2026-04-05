@@ -17,7 +17,7 @@ export default async function ParentSchedulePage() {
       id: s.id,
       childName: s.studentName.split(' ')[0], // First name only
       track: s.track,
-      coachName: `Coach ${s.studentName.includes('Okonkwo') ? 'David' : 'Sarah'}`,
+      coachName: `Coach ${s.studentName.includes('Kamau') ? 'David' : 'Sarah'}`,
       date: s.date,
       time: s.time,
       locationType: s.locationType,

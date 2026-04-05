@@ -60,7 +60,7 @@ export default async function StudentDashboard() {
               · {nextSession.durationMinutes} min
             </p>
             <Link
-              href="#"
+              href="/dashboard/schedule"
               className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-navy transition-all hover:bg-gold-light hover:shadow-md hover:shadow-gold/20 active:scale-[0.98]"
             >
               Join Lesson →
@@ -77,7 +77,7 @@ export default async function StudentDashboard() {
             Book a session with your coach to keep your learning streak going!
           </p>
           <Link
-            href="#"
+            href="/contact"
             className="inline-flex items-center gap-2 rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-teal-light"
           >
             📅 Book a Session
@@ -136,7 +136,7 @@ export default async function StudentDashboard() {
             Solve a Python puzzle
           </p>
           <Link
-            href="#"
+            href="/dashboard/practice"
             className="rounded-full bg-coral px-5 py-2 text-xs font-semibold text-white transition-all hover:bg-coral-light hover:shadow-sm active:scale-[0.97]"
           >
             Start Now
@@ -230,19 +230,19 @@ export default async function StudentDashboard() {
       {/* Section F: Quick Actions */}
       <section className="flex flex-wrap gap-3">
         <Link
-          href="#"
+          href="/dashboard/practice"
           className="rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-teal-light hover:shadow-md active:scale-[0.97]"
         >
           🎮 Practice Now
         </Link>
         <Link
-          href="#"
+          href="/dashboard/schedule"
           className="rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-navy-light hover:shadow-md active:scale-[0.97]"
         >
           📅 My Schedule
         </Link>
         <Link
-          href="#"
+          href="/contact"
           className="rounded-full border-2 border-gold px-5 py-2.5 text-sm font-semibold text-navy transition-all hover:bg-gold/10 hover:shadow-sm active:scale-[0.97]"
         >
           💬 Ask Coach

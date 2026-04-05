@@ -61,13 +61,13 @@ export default function PricingPage() {
                 Most families start with 2 sessions per week
               </p>
               <p className="text-2xl font-bold text-navy">
-                From KES 67,600<span className="text-sm text-slate font-normal">/month</span>
+                From KES 68,000<span className="text-sm text-slate font-normal">/month</span>
               </p>
               <p className="text-xs text-slate mt-1">
                 8 sessions per month, 1 child, 1 track
               </p>
               <p className="text-xs text-slate mt-1">
-                Approximately $520/month
+                Approximately $525/month
               </p>
             </div>
           </div>
@@ -118,8 +118,8 @@ export default function PricingPage() {
                 {
                   label: "One child, one track",
                   sessions: "2 sessions/week",
-                  price: "From KES 67,600/mo",
-                  usd: "Approx. $520/mo",
+                  price: "From KES 68,000/mo",
+                  usd: "Approx. $525/mo",
                   example: "e.g. Coding only, online",
                 },
                 {
