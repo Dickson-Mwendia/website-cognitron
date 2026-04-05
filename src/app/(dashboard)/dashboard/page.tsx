@@ -1,4 +1,4 @@
-import { requireAuth } from '@/lib/auth'
+import { requireRole } from '@/lib/auth'
 import {
   mockStudentDashboard,
   mockTracks,
@@ -17,7 +17,7 @@ import Link from 'next/link'
 export const metadata = { title: 'Dashboard' }
 
 export default async function StudentDashboard() {
-  const user = await requireAuth()
+  const user = await requireRole(['student'])
   const data = mockStudentDashboard
 
   const nextSession = data.nextSession

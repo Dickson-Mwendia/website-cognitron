@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { requireRole } from '@/lib/auth'
-import { ComingSoon } from '@/components/dashboard/ComingSoon'
-import { Calendar } from 'lucide-react'
+import { mockCoachSessions } from '@/lib/mock-data'
+import { CoachScheduleClient } from '@/components/dashboard/CoachScheduleClient'
 
 export const metadata: Metadata = {
   title: 'My Availability | Cognitron',
@@ -11,12 +11,17 @@ export default async function CoachSchedulePage() {
   await requireRole(['coach'])
 
   return (
-    <ComingSoon
-      title="My Availability"
-      description="Set your available times so students and parents can book sessions with you."
-      icon={Calendar}
-      backHref="/coach"
-      backLabel="Back to Coach Dashboard"
-    />
+    <div className="space-y-6 md:space-y-8">
+      <div>
+        <h1 className="font-heading text-2xl font-bold text-[#0c1b33] md:text-3xl">
+          Schedule & Availability
+        </h1>
+        <p className="mt-1 text-sm text-[#0c1b33]/60">
+          View your weekly schedule and set available time slots.
+        </p>
+      </div>
+
+      <CoachScheduleClient sessions={mockCoachSessions} />
+    </div>
   )
 }

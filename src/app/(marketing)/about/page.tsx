@@ -27,8 +27,8 @@ export default function AboutPage() {
       <section className="bg-navy text-white py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight max-w-3xl">
-            Built in Nairobi.{" "}
-            <span className="text-gold">For Nairobi families.</span>
+            Where Nairobi&apos;s brightest kids{" "}
+            <span className="text-gold">learn to build the future.</span>
           </h1>
           <p className="mt-6 text-lg text-white/70 max-w-2xl leading-relaxed">
             Cognitron exists because every ambitious child in this city deserves

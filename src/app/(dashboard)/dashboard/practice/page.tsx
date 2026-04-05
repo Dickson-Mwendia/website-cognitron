@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { requireAuth } from '@/lib/auth'
+import { requireRole } from '@/lib/auth'
 import { ComingSoon } from '@/components/dashboard/ComingSoon'
 import { GraduationCap } from 'lucide-react'
 
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 }
 
 export default async function PracticePage() {
-  await requireAuth()
+  await requireRole(['student'])
 
   return (
     <ComingSoon

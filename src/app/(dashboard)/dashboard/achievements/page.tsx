@@ -1,4 +1,4 @@
-import { requireAuth } from '@/lib/auth'
+import { requireRole } from '@/lib/auth'
 import {
   mockStudentDashboard,
   mockAchievements,
@@ -12,7 +12,7 @@ import { AchievementsClient } from '@/components/dashboard/AchievementsClient'
 export const metadata = { title: 'Achievements' }
 
 export default async function AchievementsPage() {
-  const user = await requireAuth()
+  const user = await requireRole(['student'])
   const data = mockStudentDashboard
 
   return (

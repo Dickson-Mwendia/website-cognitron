@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { requireAuth } from '@/lib/auth'
+import { requireRole } from '@/lib/auth'
 import { mockTracks, mockCodingCurriculum } from '@/lib/mock-data'
 import { ProgressRing } from '@/components/dashboard/ProgressRing'
 
@@ -60,7 +60,7 @@ export default async function TrackPage(props: {
   }
 
   const slug = track as TrackSlug
-  const user = await requireAuth()
+  const user = await requireRole(['student'])
   const config = trackConfig[slug]
   const trackData = mockTracks.find((t) => t.trackName === slug)!
   const curriculum = mockCodingCurriculum

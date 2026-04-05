@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import type { DashboardUser, UserRole, Profile } from '@/types'
 import { mockStudent, mockParent, mockCoach, mockAdmin } from '@/lib/mock-data'
 import { redirect } from 'next/navigation'
+import { headers } from 'next/headers'
 
 /**
  * Get the current authenticated user with their profile.
@@ -60,14 +61,43 @@ export function getMockUser(role: UserRole = 'student'): DashboardUser {
   }
 }
 
+/**
+ * Detect the appropriate mock role from the current request path.
+ * Used in dev mode so visiting /admin shows admin data, /parent shows
+ * parent data, etc.
+ */
+async function getMockRoleFromPath(): Promise<UserRole> {
+  try {
+    const headersList = await headers()
+    // Next.js sets x-invoke-path or we can use x-url / referer as fallback
+    const pathname =
+      headersList.get('x-invoke-path') ??
+      headersList.get('x-pathname') ??
+      headersList.get('x-next-url') ??
+      ''
+
+    // Also check referer as a secondary signal
+    const referer = headersList.get('referer') ?? ''
+    const path = pathname || new URL(referer, 'http://localhost').pathname
+
+    if (path.startsWith('/admin')) return 'admin'
+    if (path.startsWith('/coach')) return 'coach'
+    if (path.startsWith('/parent')) return 'parent'
+  } catch {
+    // headers() may throw outside of a request context — fall back to student
+  }
+  return 'student'
+}
+
 /** Require an authenticated user or redirect to /login. */
 export async function requireAuth(): Promise<DashboardUser> {
   const user = await getCurrentUser()
 
   if (!user) {
-    // In dev without Supabase, return mock student
+    // In dev without Supabase, return a route-appropriate mock user
     if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
-      return mockStudent
+      const role = await getMockRoleFromPath()
+      return getMockUser(role)
     }
     redirect('/login')
   }
@@ -89,6 +119,16 @@ export async function requireRole(
   // Approval check (requireAuth already redirects, but belt-and-suspenders)
   if (!user.approved) {
     redirect('/pending-approval')
+  }
+
+  // In dev mode without Supabase, requireAuth returns a mock user based on
+  // the current route. If that mock role isn't in allowedRoles, override with
+  // the first allowed role so the page renders correctly in dev.
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
+    if (!allowedRoles.includes(user.role)) {
+      return getMockUser(allowedRoles[0])
+    }
+    return user
   }
 
   if (!allowedRoles.includes(user.role)) {

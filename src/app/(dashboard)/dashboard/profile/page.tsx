@@ -1,4 +1,4 @@
-import { requireAuth } from '@/lib/auth'
+import { requireRole } from '@/lib/auth'
 import {
   mockTracks,
   mockAchievements,
@@ -26,7 +26,7 @@ const trackIcons: Record<string, string> = {
 }
 
 export default async function ProfilePage() {
-  const user = await requireAuth()
+  const user = await requireRole(['student'])
   const data = mockStudentDashboard
   const earnedAchievements = mockAchievements.filter((a) => a.earned)
 

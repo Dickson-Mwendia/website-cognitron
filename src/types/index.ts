@@ -144,3 +144,146 @@ export interface SparklinePoint {
   label: string
   value: number
 }
+
+// ---------------------------------------------------------------------------
+// Coach session management types
+// ---------------------------------------------------------------------------
+
+export interface CoachSession {
+  id: string
+  date: string
+  time: string
+  studentName: string
+  studentId: string
+  track: TrackName
+  status: 'scheduled' | 'completed' | 'cancelled'
+  locationType: 'home' | 'online'
+  durationMinutes: number
+  notes: string | null
+  studentProgress: string | null
+}
+
+// ---------------------------------------------------------------------------
+// Coach notes library types
+// ---------------------------------------------------------------------------
+
+export interface CoachNoteEntry {
+  id: string
+  studentName: string
+  studentId: string
+  date: string
+  track: TrackName
+  content: string
+}
+
+// ---------------------------------------------------------------------------
+// Parent children management types
+// ---------------------------------------------------------------------------
+
+export interface ParentChild {
+  id: string
+  firstName: string
+  lastName: string
+  age: number
+  avatarUrl: string | null
+  enrolledTracks: TrackName[]
+  currentXp: number
+  streak: number
+}
+
+// ---------------------------------------------------------------------------
+// Parent messages types
+// ---------------------------------------------------------------------------
+
+export interface Message {
+  id: string
+  senderId: string
+  senderName: string
+  senderRole: 'parent' | 'coach'
+  text: string
+  timestamp: string
+}
+
+export interface Conversation {
+  id: string
+  coachName: string
+  coachId: string
+  lastMessage: string
+  lastMessageAt: string
+  unreadCount: number
+  messages: Message[]
+}
+
+// ---------------------------------------------------------------------------
+// Parent progress reports types
+// ---------------------------------------------------------------------------
+
+export interface ParentReport {
+  id: string
+  childName: string
+  childId: string
+  period: string
+  overallRating: number
+  dateGenerated: string
+  summary: string
+}
+
+// ---------------------------------------------------------------------------
+// Billing types
+// ---------------------------------------------------------------------------
+
+export interface BillingPlanSummary {
+  childrenEnrolled: number
+  sessionsPerWeek: number
+  monthlyTotalKes: number
+  planName: string
+}
+
+export interface PaymentRecord {
+  id: string
+  date: string
+  amountKes: number
+  mpesaRef: string
+  status: 'paid' | 'pending' | 'overdue'
+}
+
+export interface BillingData {
+  plan: BillingPlanSummary
+  payments: PaymentRecord[]
+  outstandingBalanceKes: number
+  nextPayment: {
+    dueDate: string
+    amountKes: number
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Student schedule types
+// ---------------------------------------------------------------------------
+
+export interface StudentScheduleSession {
+  id: string
+  date: string
+  time: string
+  track: TrackName
+  coachName: string
+  locationType: 'home' | 'online'
+  lessonName: string
+  isPast: boolean
+}
+
+// ---------------------------------------------------------------------------
+// Track browse types
+// ---------------------------------------------------------------------------
+
+export interface TrackInfo {
+  id: string
+  name: TrackName
+  title: string
+  description: string
+  icon: string
+  tiers: string[]
+  moduleCount: number
+  enrolled: boolean
+  accentColor: string
+}

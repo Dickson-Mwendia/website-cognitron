@@ -11,6 +11,14 @@ import type {
   AdminSessionRow,
   CurriculumNode,
   SparklinePoint,
+  CoachSession,
+  CoachNoteEntry,
+  ParentChild,
+  Conversation,
+  ParentReport,
+  BillingData,
+  StudentScheduleSession,
+  TrackInfo,
 } from '@/types'
 
 // ---------------------------------------------------------------------------
@@ -786,3 +794,190 @@ export const mockProgressReport: ProgressReportData = {
   recommendations:
     'Continue all three tracks next term. Increase session frequency for chess from 1x to 2x per week to capitalise on her rapid improvement. Introduce pair programming sessions with an older peer to stretch her coding abilities. Schedule a parent meeting mid-term to discuss long-term pathway (she shows potential for competitive programming).',
 }
+
+// ===========================================================================
+// NEW DASHBOARD MOCK DATA
+// ===========================================================================
+
+// ---------------------------------------------------------------------------
+// Coach Sessions (15 sessions — mix of past/upcoming, different tracks/students)
+// ---------------------------------------------------------------------------
+
+export const mockCoachSessions: CoachSession[] = [
+  { id: 'cs1', date: '2025-07-21', time: '09:00', studentName: 'Amara Okonkwo', studentId: 's1', track: 'coding', status: 'scheduled', locationType: 'home', durationMinutes: 90, notes: null, studentProgress: null },
+  { id: 'cs2', date: '2025-07-21', time: '14:00', studentName: 'Wanjiku Kamau', studentId: 's3', track: 'ai', status: 'scheduled', locationType: 'online', durationMinutes: 90, notes: null, studentProgress: null },
+  { id: 'cs3', date: '2025-07-22', time: '10:00', studentName: 'Jabari Okonkwo', studentId: 's2', track: 'chess', status: 'scheduled', locationType: 'home', durationMinutes: 60, notes: null, studentProgress: null },
+  { id: 'cs4', date: '2025-07-22', time: '15:00', studentName: 'Nia Mwangi', studentId: 's4', track: 'coding', status: 'scheduled', locationType: 'home', durationMinutes: 60, notes: null, studentProgress: null },
+  { id: 'cs5', date: '2025-07-23', time: '09:00', studentName: 'Kofi Asante', studentId: 's5', track: 'coding', status: 'scheduled', locationType: 'online', durationMinutes: 90, notes: null, studentProgress: null },
+  { id: 'cs6', date: '2025-07-23', time: '14:00', studentName: 'Zuri Odhiambo', studentId: 's6', track: 'ai', status: 'scheduled', locationType: 'online', durationMinutes: 90, notes: null, studentProgress: null },
+  { id: 'cs7', date: '2025-07-24', time: '10:00', studentName: 'Aisha Hassan', studentId: 's9', track: 'coding', status: 'scheduled', locationType: 'home', durationMinutes: 90, notes: null, studentProgress: null },
+  { id: 'cs8', date: '2025-07-18', time: '09:00', studentName: 'Amara Okonkwo', studentId: 's1', track: 'coding', status: 'completed', locationType: 'home', durationMinutes: 90, notes: 'Excellent progress on Python functions. Independently wrote a reusable function with parameters and return values.', studentProgress: 'Moved from Level 4 to Level 5. Ready for list comprehensions next session.' },
+  { id: 'cs9', date: '2025-07-17', time: '14:00', studentName: 'Wanjiku Kamau', studentId: 's3', track: 'ai', status: 'completed', locationType: 'online', durationMinutes: 90, notes: 'Covered supervised vs unsupervised learning. Wanjiku asked great questions about bias in training data.', studentProgress: 'Grasped key concepts quickly. Ready for image classification module.' },
+  { id: 'cs10', date: '2025-07-16', time: '10:00', studentName: 'Jabari Okonkwo', studentId: 's2', track: 'chess', status: 'completed', locationType: 'home', durationMinutes: 60, notes: 'Practiced Italian Game opening. Jabari is getting more confident with piece development.', studentProgress: 'Improving tactical awareness. Needs more work on endgame strategy.' },
+  { id: 'cs11', date: '2025-07-15', time: '15:00', studentName: 'Nia Mwangi', studentId: 's4', track: 'coding', status: 'cancelled', locationType: 'home', durationMinutes: 60, notes: 'Student unwell. Rescheduled to next week.', studentProgress: null },
+  { id: 'cs12', date: '2025-07-14', time: '09:00', studentName: 'Kofi Asante', studentId: 's5', track: 'coding', status: 'completed', locationType: 'online', durationMinutes: 90, notes: 'Introduced ScratchJr. Kofi was very excited about creating his first animation.', studentProgress: 'Completed Motion Blocks module. Good understanding of sequences.' },
+  { id: 'cs13', date: '2025-07-14', time: '14:00', studentName: 'Zuri Odhiambo', studentId: 's6', track: 'chess', status: 'completed', locationType: 'home', durationMinutes: 60, notes: 'Worked on endgame strategy — King and Rook vs King. Zuri finding it challenging but persisting.', studentProgress: 'Endgame needs reinforcement. Schedule extra practice puzzles.' },
+  { id: 'cs14', date: '2025-07-12', time: '10:00', studentName: 'Amara Okonkwo', studentId: 's1', track: 'ai', status: 'completed', locationType: 'home', durationMinutes: 90, notes: 'Built a pet classifier with Teachable Machine. Amara loved seeing the model learn from her photos.', studentProgress: 'Excellent engagement. Moving to ML Playground module next.' },
+  { id: 'cs15', date: '2025-07-11', time: '14:00', studentName: 'Aisha Hassan', studentId: 's9', track: 'coding', status: 'completed', locationType: 'online', durationMinutes: 90, notes: 'Functions & Modules lesson. Aisha is progressing well through Bridge to Text Coding.', studentProgress: 'Completed Functions module. Ready for file I/O basics.' },
+]
+
+// ---------------------------------------------------------------------------
+// Coach Notes Library (10+ notes across students/tracks)
+// ---------------------------------------------------------------------------
+
+export const mockCoachNotesLibrary: CoachNoteEntry[] = [
+  { id: 'cnl1', studentName: 'Amara Okonkwo', studentId: 's1', date: '2025-07-18', track: 'coding', content: 'Excellent progress on Python functions today. She independently wrote a reusable function with parameters and return values. Her code structure is remarkably clean for her age group. Next session: introduce list comprehensions and basic data structures.' },
+  { id: 'cnl2', studentName: 'Amara Okonkwo', studentId: 's1', date: '2025-07-12', track: 'ai', content: 'Built a pet classifier with Teachable Machine. Amara was fascinated by the training process and asked insightful questions about how the model "learns". She connected AI concepts to everyday life — mentioned how YouTube recommendations work similarly.' },
+  { id: 'cnl3', studentName: 'Jabari Okonkwo', studentId: 's2', date: '2025-07-16', track: 'chess', content: 'Practiced Italian Game opening. Jabari is getting more confident with piece development. His tactical awareness has improved — he now spots basic pins within 2 moves. Needs more practice with endgame strategy, particularly King and Pawn endings.' },
+  { id: 'cnl4', studentName: 'Wanjiku Kamau', studentId: 's3', date: '2025-07-17', track: 'ai', content: 'Covered supervised vs unsupervised learning concepts. Wanjiku asked excellent questions about bias in training data — she brought up examples from social media algorithms. She grasps abstract concepts quickly. Ready for the image classification hands-on module.' },
+  { id: 'cnl5', studentName: 'Nia Mwangi', studentId: 's4', date: '2025-07-10', track: 'coding', content: 'Reviewed ScratchJr basics. Nia completed 2 motion block exercises but was a bit distracted today. Consider shorter sessions (45 min) to maintain focus. She responds well to gamified challenges — use the star reward system next time.' },
+  { id: 'cnl6', studentName: 'Kofi Asante', studentId: 's5', date: '2025-07-14', track: 'coding', content: 'Introduced ScratchJr Adventures module. Kofi was incredibly excited about creating his first animation — a cat walking across the screen. His understanding of sequences is solid. He finished the Motion Blocks exercise ahead of time and helped a peer.' },
+  { id: 'cnl7', studentName: 'Zuri Odhiambo', studentId: 's6', date: '2025-07-14', track: 'chess', content: 'Worked on endgame strategy — King and Rook vs King. Zuri is finding it challenging but showing good persistence. Assigned 5 endgame puzzles on Lichess for practice. She expressed interest in entering the school chess tournament.' },
+  { id: 'cnl8', studentName: 'Aisha Hassan', studentId: 's9', date: '2025-07-11', track: 'coding', content: 'Functions & Modules lesson went very well. Aisha is progressing steadily through Bridge to Text Coding. She wrote a temperature converter function without prompting. Her logical thinking is strong — consider accelerating her curriculum.' },
+  { id: 'cnl9', studentName: 'Wanjiku Kamau', studentId: 's3', date: '2025-07-10', track: 'coding', content: 'Wanjiku completed the Variables & Types module. She struggled initially with type conversion (int to string) but understood after working through 3 examples. Assigned practice exercises focusing on string formatting.' },
+  { id: 'cnl10', studentName: 'Jabari Okonkwo', studentId: 's2', date: '2025-07-09', track: 'coding', content: 'Jabari worked on HTML basics today. He built a simple personal webpage with headings, paragraphs, and an image. He was excited to see his page render in the browser. Next: introduce CSS for styling.' },
+  { id: 'cnl11', studentName: 'Amara Okonkwo', studentId: 's1', date: '2025-07-05', track: 'chess', content: 'Tactical training session — focused on forks and pins. Amara solved 8 out of 10 puzzles correctly. Her pattern recognition is improving rapidly. She beat Jabari in a practice game using a knight fork on move 12. Ready for tournament prep.' },
+]
+
+// ---------------------------------------------------------------------------
+// Parent Children (2 children with different ages/tracks)
+// ---------------------------------------------------------------------------
+
+export const mockParentChildren: ParentChild[] = [
+  { id: 'pc1', firstName: 'Amara', lastName: 'Okonkwo', age: 10, avatarUrl: null, enrolledTracks: ['coding', 'ai', 'chess'], currentXp: 5390, streak: 5 },
+  { id: 'pc2', firstName: 'Jabari', lastName: 'Okonkwo', age: 8, avatarUrl: null, enrolledTracks: ['coding', 'chess'], currentXp: 3200, streak: 3 },
+]
+
+// ---------------------------------------------------------------------------
+// Parent Messages (conversation with coach, 8-10 messages)
+// ---------------------------------------------------------------------------
+
+export const mockParentConversations: Conversation[] = [
+  {
+    id: 'conv1',
+    coachName: 'Coach David Mutua',
+    coachId: 'coach1',
+    lastMessage: 'Amara did brilliantly today! She wrote her first Python function independently.',
+    lastMessageAt: '2025-07-18T16:30:00Z',
+    unreadCount: 1,
+    messages: [
+      { id: 'm1', senderId: 'coach1', senderName: 'Coach David', senderRole: 'coach', text: 'Hi Fatima! Just wanted to introduce myself. I\'ll be coaching Amara and Jabari this term. Looking forward to working with them!', timestamp: '2025-07-01T09:00:00Z' },
+      { id: 'm2', senderId: 'parent1', senderName: 'Fatima', senderRole: 'parent', text: 'Welcome, Coach David! The children are very excited to start. Amara has been talking about coding all week.', timestamp: '2025-07-01T10:15:00Z' },
+      { id: 'm3', senderId: 'coach1', senderName: 'Coach David', senderRole: 'coach', text: 'That\'s wonderful to hear! For our first session on Monday, I\'ll need a laptop or tablet for Amara. Jabari can start with paper-based activities for chess.', timestamp: '2025-07-01T11:00:00Z' },
+      { id: 'm4', senderId: 'parent1', senderName: 'Fatima', senderRole: 'parent', text: 'We have a laptop ready. What time should we expect you?', timestamp: '2025-07-01T11:30:00Z' },
+      { id: 'm5', senderId: 'coach1', senderName: 'Coach David', senderRole: 'coach', text: 'I\'ll be there at 9am sharp. Sessions run 90 minutes for coding and 60 minutes for chess. See you Monday!', timestamp: '2025-07-01T12:00:00Z' },
+      { id: 'm6', senderId: 'parent1', senderName: 'Fatima', senderRole: 'parent', text: 'Perfect. One question — Amara has been doing some Scratch on her own. Should she continue or wait for your guidance?', timestamp: '2025-07-03T08:00:00Z' },
+      { id: 'm7', senderId: 'coach1', senderName: 'Coach David', senderRole: 'coach', text: 'Definitely encourage her! Self-directed exploration is fantastic. I\'ll assess where she is on Monday and tailor the curriculum accordingly. If she\'s already comfortable with Scratch, we might move to Python sooner.', timestamp: '2025-07-03T09:30:00Z' },
+      { id: 'm8', senderId: 'parent1', senderName: 'Fatima', senderRole: 'parent', text: 'How did today\'s session go? Amara seemed very happy when she came out.', timestamp: '2025-07-18T15:00:00Z' },
+      { id: 'm9', senderId: 'coach1', senderName: 'Coach David', senderRole: 'coach', text: 'Amara did brilliantly today! She wrote her first Python function independently. I\'m really impressed with her progress — she\'s one of the fastest learners I\'ve worked with at her age.', timestamp: '2025-07-18T16:30:00Z' },
+    ],
+  },
+  {
+    id: 'conv2',
+    coachName: 'Coach Sarah Njeri',
+    coachId: 'coach2',
+    lastMessage: 'Jabari\'s chess is improving nicely. He beat two opponents in practice today!',
+    lastMessageAt: '2025-07-16T17:00:00Z',
+    unreadCount: 0,
+    messages: [
+      { id: 'm10', senderId: 'coach2', senderName: 'Coach Sarah', senderRole: 'coach', text: 'Hello Fatima! I\'m Sarah, Jabari\'s chess coach. We had a great first session today.', timestamp: '2025-07-07T16:00:00Z' },
+      { id: 'm11', senderId: 'parent1', senderName: 'Fatima', senderRole: 'parent', text: 'Hi Coach Sarah! Jabari told me he learned about the Italian Game. He\'s been setting up the board and practising at home!', timestamp: '2025-07-07T18:00:00Z' },
+      { id: 'm12', senderId: 'coach2', senderName: 'Coach Sarah', senderRole: 'coach', text: 'That\'s excellent! Home practice makes a huge difference. I\'ve set up a Lichess account for him — I\'ll send the login details. He can do puzzles between sessions.', timestamp: '2025-07-08T09:00:00Z' },
+      { id: 'm13', senderId: 'coach2', senderName: 'Coach Sarah', senderRole: 'coach', text: 'Jabari\'s chess is improving nicely. He beat two opponents in practice today! His opening game is solid. We\'ll focus on endgame strategy next.', timestamp: '2025-07-16T17:00:00Z' },
+    ],
+  },
+]
+
+// ---------------------------------------------------------------------------
+// Parent Progress Reports (3-4 reports across children/terms)
+// ---------------------------------------------------------------------------
+
+export const mockParentReports: ParentReport[] = [
+  { id: 'pr1', childName: 'Amara Okonkwo', childId: 'pc1', period: 'Term 1: Jan–Mar 2025', overallRating: 5, dateGenerated: '2025-04-05', summary: 'Outstanding term. Amara consistently demonstrates curiosity and persistence across all three tracks. Problem-solving skills have matured significantly.' },
+  { id: 'pr2', childName: 'Amara Okonkwo', childId: 'pc1', period: 'Term 2: Apr–Jun 2025', overallRating: 5, dateGenerated: '2025-07-05', summary: 'Exceptional progress. Moved from Scratch to Python coding. Built 3 independent projects. Chess rating improved from 500 to 750 on Lichess.' },
+  { id: 'pr3', childName: 'Jabari Okonkwo', childId: 'pc2', period: 'Term 1: Jan–Mar 2025', overallRating: 4, dateGenerated: '2025-04-05', summary: 'Strong start. Jabari shows natural talent for chess and enjoys the competitive element. Coding progress is steady — he completed the ScratchJr module.' },
+  { id: 'pr4', childName: 'Jabari Okonkwo', childId: 'pc2', period: 'Term 2: Apr–Jun 2025', overallRating: 4, dateGenerated: '2025-07-05', summary: 'Good progress across both tracks. Chess opening repertoire is developing well. Started HTML basics in coding and built his first webpage. Recommend adding AI track next term.' },
+]
+
+// ---------------------------------------------------------------------------
+// Billing Data
+// ---------------------------------------------------------------------------
+
+export const mockBillingData: BillingData = {
+  plan: {
+    childrenEnrolled: 2,
+    sessionsPerWeek: 5,
+    monthlyTotalKes: 33000,
+    planName: 'Family Bundle',
+  },
+  payments: [
+    { id: 'pay1', date: '2025-07-01', amountKes: 33000, mpesaRef: 'QJK7B2TXRM', status: 'paid' },
+    { id: 'pay2', date: '2025-06-01', amountKes: 33000, mpesaRef: 'PLM4N8WVCS', status: 'paid' },
+    { id: 'pay3', date: '2025-05-01', amountKes: 33000, mpesaRef: 'RHT6D3FXKP', status: 'paid' },
+    { id: 'pay4', date: '2025-04-01', amountKes: 33000, mpesaRef: 'WBN9G5JYMA', status: 'paid' },
+    { id: 'pay5', date: '2025-03-01', amountKes: 24000, mpesaRef: 'XCF2K7LQDS', status: 'paid' },
+    { id: 'pay6', date: '2025-08-01', amountKes: 33000, mpesaRef: '', status: 'pending' },
+  ],
+  outstandingBalanceKes: 33000,
+  nextPayment: {
+    dueDate: '2025-08-01',
+    amountKes: 33000,
+  },
+}
+
+// ---------------------------------------------------------------------------
+// Student Schedule (5 upcoming + 5 past sessions)
+// ---------------------------------------------------------------------------
+
+export const mockStudentSchedule: StudentScheduleSession[] = [
+  { id: 'ss1', date: '2025-07-21', time: '09:00', track: 'coding', coachName: 'Coach David', locationType: 'home', lessonName: 'Python Lists & Loops', isPast: false },
+  { id: 'ss2', date: '2025-07-22', time: '14:00', track: 'chess', coachName: 'Coach Sarah', locationType: 'home', lessonName: 'Endgame Strategy', isPast: false },
+  { id: 'ss3', date: '2025-07-24', time: '09:00', track: 'ai', coachName: 'Coach David', locationType: 'online', lessonName: 'Image Classification', isPast: false },
+  { id: 'ss4', date: '2025-07-28', time: '09:00', track: 'coding', coachName: 'Coach David', locationType: 'home', lessonName: 'Data Structures Intro', isPast: false },
+  { id: 'ss5', date: '2025-07-29', time: '14:00', track: 'chess', coachName: 'Coach Sarah', locationType: 'home', lessonName: 'Tournament Prep', isPast: false },
+  { id: 'ss6', date: '2025-07-18', time: '09:00', track: 'coding', coachName: 'Coach David', locationType: 'home', lessonName: 'Python Functions', isPast: true },
+  { id: 'ss7', date: '2025-07-17', time: '14:00', track: 'ai', coachName: 'Coach David', locationType: 'online', lessonName: 'ML Playground Intro', isPast: true },
+  { id: 'ss8', date: '2025-07-15', time: '14:00', track: 'chess', coachName: 'Coach Sarah', locationType: 'home', lessonName: 'Tactical Puzzles', isPast: true },
+  { id: 'ss9', date: '2025-07-14', time: '09:00', track: 'coding', coachName: 'Coach David', locationType: 'home', lessonName: 'Print & Input', isPast: true },
+  { id: 'ss10', date: '2025-07-12', time: '09:00', track: 'ai', coachName: 'Coach David', locationType: 'home', lessonName: 'Teachable Machine', isPast: true },
+]
+
+// ---------------------------------------------------------------------------
+// Track Info (for browsing all tracks)
+// ---------------------------------------------------------------------------
+
+export const mockTrackInfo: TrackInfo[] = [
+  {
+    id: 'track-coding',
+    name: 'coding',
+    title: 'Coding',
+    description: 'Learn to code from scratch! Start with visual programming in ScratchJr, progress through Python, and build real projects including websites and apps. By the end, you\'ll have a portfolio to show off.',
+    icon: '💻',
+    tiers: ['Explorers (ages 5–9)', 'Builders (ages 10–13)', 'Innovators (ages 14–17)'],
+    moduleCount: 24,
+    enrolled: true,
+    accentColor: '#2a9d8f',
+  },
+  {
+    id: 'track-ai',
+    name: 'ai',
+    title: 'AI & Machine Learning',
+    description: 'Discover how artificial intelligence works! Train your own models, build image classifiers, and learn about the ethics of AI. No prior coding experience needed for the first tier.',
+    icon: '🤖',
+    tiers: ['AI Explorers (ages 8–11)', 'AI Builders (ages 11–14)', 'AI Innovators (ages 14–17)'],
+    moduleCount: 18,
+    enrolled: true,
+    accentColor: '#e8614d',
+  },
+  {
+    id: 'track-chess',
+    name: 'chess',
+    title: 'Chess',
+    description: 'Master the royal game! Learn openings, tactics, and strategy from beginner to tournament level. Includes Lichess integration for practice between sessions and KCF tournament preparation.',
+    icon: '♟️',
+    tiers: ['Learn (ages 5–8)', 'Play (ages 9–12)', 'Compete (ages 12–15)', 'Excel (ages 15–17)'],
+    moduleCount: 20,
+    enrolled: true,
+    accentColor: '#d4a843',
+  },
+]
